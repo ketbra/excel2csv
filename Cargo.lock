@@ -1094,6 +1094,8 @@ checksum = "e320a6c5ad31d271ad523dcf3ad13e2767ad8b1cb8f047f75a8aeaf8da139da2"
 [[package]]
 name = "ssfmt"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2826857631367d54b8289566aae34bf0f451aa020b46327c4ed342f3aa4b6fd8"
 dependencies = [
  "chrono",
  "lru",
