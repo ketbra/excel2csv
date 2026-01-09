@@ -97,7 +97,7 @@ fn run(args: Args) -> error::Result<()> {
     for &sheet_idx in &sheets_to_process {
         let sheet = workbook
             .get_sheet(&sheet_idx)
-            .ok_or_else(|| error::Error::SheetIndexOutOfRange {
+            .ok_or(error::Error::SheetIndexOutOfRange {
                 index: sheet_idx,
                 count: sheet_names.len(),
             })?;

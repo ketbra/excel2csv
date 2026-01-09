@@ -45,15 +45,6 @@ pub fn get_sheet_names(workbook: &Spreadsheet) -> Vec<String> {
     names
 }
 
-/// Get sheet count
-pub fn get_sheet_count(workbook: &Spreadsheet) -> usize {
-    let mut count = 0usize;
-    while workbook.get_sheet(&count).is_some() {
-        count += 1;
-    }
-    count
-}
-
 /// Parse sheet selector (name or index)
 pub fn parse_sheet_selector(selector: &str) -> SheetSelector {
     if let Ok(index) = selector.parse::<usize>() {
