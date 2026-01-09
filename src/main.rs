@@ -1,4 +1,5 @@
 mod error;
+mod reader;
 
 use clap::{Parser, ValueEnum};
 use std::path::PathBuf;
@@ -51,8 +52,23 @@ pub struct Args {
 
 fn main() {
     let args = Args::parse();
-    if args.verbose {
-        eprintln!("input: {:?}", args.input);
-        eprintln!("format: {:?}", args.format);
+
+    if let Err(e) = run(args) {
+        eprintln!("error: {}", e);
+        std::process::exit(e.exit_code());
     }
+}
+
+fn run(args: Args) -> error::Result<()> {
+    if args.verbose {
+        eprintln!("reading: {:?}", args.input);
+    }
+
+    let _workbook = reader::open_workbook(&args.input)?;
+
+    if args.verbose {
+        eprintln!("opened successfully");
+    }
+
+    Ok(())
 }
