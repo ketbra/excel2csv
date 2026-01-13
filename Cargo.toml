@@ -10,4 +10,4 @@ xlrd = { git = "https://github.com/PleaseDont/xlrd" }
 csv = "1"
 clap = { version = "4", features = ["derive"] }
 thiserror = "1"
-ssfmt = "0.1"
+ssfmt = "0.1.2"
